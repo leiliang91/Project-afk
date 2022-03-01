@@ -1,5 +1,7 @@
 package csgo.threads;
 
+import csgo.CSGOCore;
+
 public class AFK1 extends Thread{
     @Override
     public void run() {
@@ -12,17 +14,10 @@ public class AFK1 extends Thread{
     }
 
     private void afk() throws InterruptedException {
-//        System.out.println("afk1 start!");
-//        Random r = new Random();
-//        while(true) {
-//            int type = r.nextInt(2);
-//            if (type == 0) {
-//                //CSGOCore.mouse_move(0, 500);
-//            }
-//            else {
-//                //CSGOCore.mouse_move(0, -500);
-//            }
-//            Thread.sleep(100);
-//        }
+        System.out.println("afk1 start!");
+        while(true) {
+            CSGOCore.pressSpace();
+             Thread.sleep(15000);
+        }
     }
 }

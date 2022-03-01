@@ -33,7 +33,7 @@ public class AFK2 extends Thread{
         Random r = new Random();
 
         while(true) {
-            int n = r.nextInt(10000) + 1000;
+            int n = r.nextInt(1000) + 55000;
 //            CSGOCore.pressW(1000);
             CSGOCore.pressLMouse();
             //CSGOCore.pressSpace();
