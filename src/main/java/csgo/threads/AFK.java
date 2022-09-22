@@ -65,23 +65,48 @@ public class AFK extends Thread {
         int pointX = (int) point.getX();
         int pointY = (int) point.getY();
 
+        int centerX = (int) screenSize.getWidth() / 2;
+        int centerY = (int) screenSize.getHeight() / 2;
+
+        System.out.println(pointX + " " + pointY);
         Robot robot = new Robot();
         int i = 0;
         while (true) {
-            if (i % 20 == 0) {
-                sendKeys(robot, print);
+//            if (i % 20 == 0) {
+//                sendKeys(robot, print);
+//            }
+            //v follow
+//            robot.mouseMove(pointX, pointY);
+//            robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+//            robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+//            robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+//            robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+//            Thread.sleep(300);
+//            robot.mouseMove(centerX, centerY);
+//            robot.keyPress(KeyEvent.VK_V);
+//            robot.keyRelease(KeyEvent.VK_V);
+//            Thread.sleep(4000);
+//            robot.mouseMove(targetX, targetY);
+//            Thread.sleep(300);
+//            robot.mousePress(InputEvent.BUTTON3_DOWN_MASK);
+//            robot.mouseRelease(InputEvent.BUTTON3_DOWN_MASK);
+//            Thread.sleep(1000);
+
+            //dian ji follow
+            for(int j = 0; j < 7; j++) {
+                robot.mouseMove(pointX, pointY);
+                robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+                robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+                robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+                robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+                Thread.sleep(300);
+                robot.mouseMove(centerX, centerY);
+                robot.mousePress(InputEvent.BUTTON3_DOWN_MASK);
+                robot.mouseRelease(InputEvent.BUTTON3_DOWN_MASK);
+                Thread.sleep(300);
             }
-            robot.mouseMove(pointX, pointY);
-            robot.keyPress(KeyEvent.VK_V);
-            robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-            robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-            robot.keyRelease(KeyEvent.VK_V);
-            Thread.sleep(5000);
-            robot.mouseMove(targetX, targetY);
-            Thread.sleep(300);
-            robot.mousePress(InputEvent.BUTTON3_DOWN_MASK);
-            robot.mouseRelease(InputEvent.BUTTON3_DOWN_MASK);
-            Thread.sleep(1000);
+            //
+
             i++;
         }
 
