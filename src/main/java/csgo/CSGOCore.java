@@ -68,6 +68,10 @@ public class CSGOCore {
         return user32.GetKeyState(4).compareTo(zeroSHORT) < 0;
     }
 
+    public static boolean isX1ButtonDown() {return user32.GetKeyState(5).compareTo(zeroSHORT) < 0;}
+    public static boolean isX2ButtonDown() {return user32.GetKeyState(6).compareTo(zeroSHORT) < 0;}
+
+
     public static boolean isAltDown() {
         return user32.GetKeyState(18).compareTo(zeroSHORT) < 0;
     }

@@ -20,14 +20,6 @@ public class CSGOService {
     public static int MAP_OFFSET_RIGHT;
 
     public static void main(String[] args) throws Exception {
-        if (args.length != 4) {
-            System.out.println("4 args required");
-            return;
-        }
-        DIREC = Integer.parseInt(args[0]) == 0? 0 : 1;
-        PRINT = args[1];
-        MAP_OFFSET_LEFT = Integer.parseInt(args[2]);
-        MAP_OFFSET_RIGHT = Integer.parseInt(args[3]);
 
         while(true) {
             Thread.sleep(tick);
@@ -37,22 +29,14 @@ public class CSGOService {
                     afkServiceOn = false;
                     if(afkService != null) {
                         afkService.interrupt();
-                        //afkService1.interrupt();
-                        //afkService2.interrupt();
                         afkService = null;
-                        //afkService1 = null;
-                        //afkService2 = null;
                     }
                 } else {
                     beep(800, 600);
                     afkServiceOn = true;
                     if(afkService == null) {
                         afkService = new AFK();
-                        //afkService1 = new AFK1();
-                        //afkService2 = new AFK2();
                         afkService.start();
-                        //afkService1.start();
-                        //afkService2.start();
                     }
                 }
             }
