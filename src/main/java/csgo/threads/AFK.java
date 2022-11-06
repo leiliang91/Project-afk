@@ -47,7 +47,7 @@ public class AFK extends Thread {
                 int y = (int) currentPoint.getY();
 
 
-                robot.mouseMove(x, y - 375);
+                robot.mouseMove(x+150, y);
 
                 robot.keyPress(KeyEvent.VK_E);
                 robot.keyRelease(KeyEvent.VK_E);
