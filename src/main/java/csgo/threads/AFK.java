@@ -19,7 +19,8 @@ public class AFK extends Thread {
     @Override
     public void run() {
         try {
-            arc();
+            //1 shang mian, 2 xia mian
+            guaji(1);
         } catch (InterruptedException | AWTException e) {
             System.out.println("afk ends! Reason: " + e);
         }
@@ -62,6 +63,48 @@ public class AFK extends Thread {
             }
             Thread.sleep(50);
         }
+
+    }
+
+    private void guaji(int i) throws InterruptedException, AWTException {
+        Robot robot = new Robot();
+        Random r = new Random();
+
+        /*
+        x: 236, y: 1082
+        x: 179, y: 1080
+        x: 120, y: 1098
+        afk ends! Reason: java.lang.InterruptedException
+        x: 138, y: 1427
+        x: 188, y: 1415
+        x: 252, y: 1427
+        afk ends! Reason: java.lang.InterruptedException
+         */
+        int[] xs = i == 1? new int[] {236, 179,120}:new int[]{138, 188,252};
+        int[] ys = i == 1? new int[] {1082, 1080, 1098}:new int[]{1427, 1415, 1427};
+
+        while(true) {
+            for(int j = 0; j < 3; j++) {
+                int delta = -2 + r.nextInt(5);
+                robot.mouseMove(xs[j] + delta, ys[j]+ delta);
+                Thread.sleep(100 + r.nextInt(100));
+                robot.keyPress(KeyEvent.VK_A);
+                robot.keyRelease(KeyEvent.VK_A);
+                Thread.sleep(100 + r.nextInt(30000));
+            }
+
+            //找坐标用
+//            if(CSGOCore.isEndDown()) {
+//                PointerInfo pi = MouseInfo.getPointerInfo();
+//                Point currentPoint = pi.getLocation();
+//                int x = (int) currentPoint.getX();
+//                int y = (int) currentPoint.getY();
+//                System.out.println("x: " + x + ", y: " + y);
+//                Thread.sleep(100);
+//            }
+//            Thread.sleep(100);
+        }
+
 
     }
 }
