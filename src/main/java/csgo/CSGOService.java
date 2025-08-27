@@ -2,9 +2,7 @@ package csgo;
 
 import csgo.threads.AFK;
 
-import static csgo.CSGOCore.beep;
-import static csgo.CSGOCore.is6Down;
-import static csgo.CSGOCore.isAltDown;
+import static csgo.CSGOCore.*;
 
 public class CSGOService {
     private static final int tick = 100; //100ms
@@ -23,7 +21,7 @@ public class CSGOService {
 
         while(true) {
             Thread.sleep(tick);
-            if(isAltDown()) {
+            if(isHomeDown()) {
                 if(afkServiceOn) {
                     beep(400, 600);
                     afkServiceOn = false;
